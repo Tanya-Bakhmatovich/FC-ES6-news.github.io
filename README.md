@@ -1,1 +1,1 @@
-https://tanya2501.github.io/FC-ES6-news.github.io/.
+https://tanya2501.github.io/FC-ES6-news.github.io/
