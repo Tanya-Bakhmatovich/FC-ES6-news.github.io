@@ -1,0 +1,19 @@
+{
+    "parser": "babel-eslint",
+    "extends": "airbnb-base",
+    "plugins": [
+        "import"
+    ],
+    "rules": {
+        "indent": ["error", 4],
+        "no-param-reassign": [2, {"props": false}],
+        "func-names": ["error", "never"],
+        "linebreak-style": ["off"]
+     },
+    "globals": {
+    "window": true,
+    "document": true,
+    "fetch": true
+  }
+
+}
