@@ -7,7 +7,7 @@ class News {
         try {
             return (await fetch(url)).json();
         } catch (err) {
-            console.log(err);
+            return console.error(err);
         }
     }
 
@@ -17,8 +17,8 @@ class News {
         attrs,
         props,
     }) {
-        console.log('remove');
         const element = document.createElement(tagName);
+
         if (attrs) {
             Object.keys(attrs).forEach((attr) => {
                 element.setAttribute(attr, attrs[attr]);
@@ -43,8 +43,7 @@ class News {
         if (document.querySelector('.main-section')) {
             document.body.removeChild(document.querySelector('.main-section'));
         }
-
-
+        
         const main = News.createElement({ attrs: { class: 'main-section' } });
 
         articles.forEach((article) => {
@@ -56,7 +55,6 @@ class News {
                 url,
                 urlToImage,
             } = article;
-
             const articleBlock = News.createElement({ parent: main, tagName: 'a', attrs: { href: `${url}`, target: '_blank', class: 'article' } });
 
             News.createElement({
@@ -136,20 +134,25 @@ class News {
 
             sourceNewsSmall.addEventListener('click', async () => {
                 const { forEach } = Array.prototype;
+
                 document.querySelectorAll('.active')
                 ::forEach(elem => elem.classList.remove('active'));
                 sourceNewsSmall.classList.add('active');
+
                 News.renderNews(await News.sendRequest(url));
             });
 
             sourceNews.addEventListener('click', async () => {
                 document.querySelector(`.${source}-small`).classList.add('active');
+
                 News.renderNews(await News.sendRequest(url));
             });
+
             return this;
         });
     }
 }
 
 const newsApp = new News();
+
 newsApp.render();

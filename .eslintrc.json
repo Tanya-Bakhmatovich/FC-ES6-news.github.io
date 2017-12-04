@@ -8,12 +8,14 @@
         "indent": ["error", 4],
         "no-param-reassign": [2, {"props": false}],
         "func-names": ["error", "never"],
-        "linebreak-style": ["off"]
+        "linebreak-style": ["off"],
+        "newline-after-var": ["error"],
+        "newline-before-return": ["error"]
      },
     "globals": {
-    "window": true,
-    "document": true,
-    "fetch": true
+        "window": true,
+        "document": true,
+        "fetch": true
   }
 
 }

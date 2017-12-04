@@ -60,10 +60,12 @@ var News = function () {
                                 case 0:
                                     forEach = Array.prototype.forEach;
 
+
                                     (_context = document.querySelectorAll('.active'), forEach).call(_context, function (elem) {
                                         return elem.classList.remove('active');
                                     });
                                     sourceNewsSmall.classList.add('active');
+
                                     _context2.t0 = News;
                                     _context2.next = 6;
                                     return News.sendRequest(url);
@@ -87,6 +89,7 @@ var News = function () {
                             switch (_context3.prev = _context3.next) {
                                 case 0:
                                     document.querySelector('.' + source + '-small').classList.add('active');
+
                                     _context3.t0 = News;
                                     _context3.next = 4;
                                     return News.sendRequest(url);
@@ -103,6 +106,7 @@ var News = function () {
                         }
                     }, _callee2, _this);
                 })));
+
                 return _this;
             });
         }
@@ -125,7 +129,9 @@ var News = function () {
                                 _context4.prev = 6;
                                 _context4.t0 = _context4['catch'](0);
 
-                            case 8:
+                                console.error(_context4.t0);
+
+                            case 9:
                             case 'end':
                                 return _context4.stop();
                         }
@@ -150,6 +156,7 @@ var News = function () {
                 props = _ref4.props;
 
             var element = document.createElement(tagName);
+
             if (attrs) {
                 Object.keys(attrs).forEach(function (attr) {
                     element.setAttribute(attr, attrs[attr]);
@@ -162,7 +169,6 @@ var News = function () {
             if (props) {
                 Object.assign(element, props);
             }
-
             return parent.appendChild(element);
         }
     }, {
@@ -176,7 +182,6 @@ var News = function () {
             if (document.querySelector('.main-section')) {
                 document.body.removeChild(document.querySelector('.main-section'));
             }
-
             var main = News.createElement({ attrs: { class: 'main-section' } });
 
             articles.forEach(function (article) {
@@ -186,7 +191,6 @@ var News = function () {
                     title = article.title,
                     url = article.url,
                     urlToImage = article.urlToImage;
-
 
                 var articleBlock = News.createElement({ parent: main, tagName: 'a', attrs: { href: '' + url, target: '_blank', class: 'article' } });
 
@@ -239,4 +243,5 @@ var News = function () {
 }();
 
 var newsApp = new News();
+
 newsApp.render();
