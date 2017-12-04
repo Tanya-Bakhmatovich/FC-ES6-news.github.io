@@ -128,8 +128,7 @@ var News = function () {
                             case 6:
                                 _context4.prev = 6;
                                 _context4.t0 = _context4['catch'](0);
-
-                                console.error(_context4.t0);
+                                return _context4.abrupt('return', console.error(_context4.t0));
 
                             case 9:
                             case 'end':
@@ -169,6 +168,7 @@ var News = function () {
             if (props) {
                 Object.assign(element, props);
             }
+
             return parent.appendChild(element);
         }
     }, {
@@ -182,6 +182,7 @@ var News = function () {
             if (document.querySelector('.main-section')) {
                 document.body.removeChild(document.querySelector('.main-section'));
             }
+
             var main = News.createElement({ attrs: { class: 'main-section' } });
 
             articles.forEach(function (article) {
