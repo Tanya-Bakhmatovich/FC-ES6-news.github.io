@@ -50,77 +50,104 @@ var News = function () {
                     props: { innerHTML: '' + source.split('-').join(' ').toUpperCase() }
                 });
 
-                sourceNewsSmall.addEventListener('click', function () {
+                sourceNewsSmall.addEventListener('click', _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
                     var _context;
 
-                    var forEach = Array.prototype.forEach;
+                    var forEach;
+                    return regeneratorRuntime.wrap(function _callee$(_context2) {
+                        while (1) {
+                            switch (_context2.prev = _context2.next) {
+                                case 0:
+                                    forEach = Array.prototype.forEach;
 
-                    (_context = document.querySelectorAll('.active'), forEach).call(_context, function (elem) {
-                        return elem.classList.remove('active');
-                    });
-                    sourceNewsSmall.classList.add('active');
-                    News.sendRequest(url);
-                });
+                                    (_context = document.querySelectorAll('.active'), forEach).call(_context, function (elem) {
+                                        return elem.classList.remove('active');
+                                    });
+                                    sourceNewsSmall.classList.add('active');
+                                    _context2.t0 = News;
+                                    _context2.next = 6;
+                                    return News.sendRequest(url);
 
-                sourceNews.addEventListener('click', function () {
-                    document.querySelector('.' + source + '-small').classList.add('active');
-                    News.sendRequest(url);
-                });
+                                case 6:
+                                    _context2.t1 = _context2.sent;
+
+                                    _context2.t0.renderNews.call(_context2.t0, _context2.t1);
+
+                                case 8:
+                                case 'end':
+                                    return _context2.stop();
+                            }
+                        }
+                    }, _callee, _this);
+                })));
+
+                sourceNews.addEventListener('click', _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+                    return regeneratorRuntime.wrap(function _callee2$(_context3) {
+                        while (1) {
+                            switch (_context3.prev = _context3.next) {
+                                case 0:
+                                    document.querySelector('.' + source + '-small').classList.add('active');
+                                    _context3.t0 = News;
+                                    _context3.next = 4;
+                                    return News.sendRequest(url);
+
+                                case 4:
+                                    _context3.t1 = _context3.sent;
+
+                                    _context3.t0.renderNews.call(_context3.t0, _context3.t1);
+
+                                case 6:
+                                case 'end':
+                                    return _context3.stop();
+                            }
+                        }
+                    }, _callee2, _this);
+                })));
                 return _this;
             });
         }
     }], [{
         key: 'sendRequest',
         value: function () {
-            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(url) {
-                var response, data;
-                return regeneratorRuntime.wrap(function _callee$(_context2) {
+            var _ref3 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3(url) {
+                return regeneratorRuntime.wrap(function _callee3$(_context4) {
                     while (1) {
-                        switch (_context2.prev = _context2.next) {
+                        switch (_context4.prev = _context4.next) {
                             case 0:
-                                _context2.prev = 0;
-                                _context2.next = 3;
+                                _context4.prev = 0;
+                                _context4.next = 3;
                                 return fetch(url);
 
                             case 3:
-                                response = _context2.sent;
-                                _context2.next = 6;
-                                return response.json();
+                                return _context4.abrupt('return', _context4.sent.json());
 
                             case 6:
-                                data = _context2.sent;
+                                _context4.prev = 6;
+                                _context4.t0 = _context4['catch'](0);
 
-                                News.renderNews(data);
-                                _context2.next = 12;
-                                break;
-
-                            case 10:
-                                _context2.prev = 10;
-                                _context2.t0 = _context2['catch'](0);
-
-                            case 12:
+                            case 8:
                             case 'end':
-                                return _context2.stop();
+                                return _context4.stop();
                         }
                     }
-                }, _callee, this, [[0, 10]]);
+                }, _callee3, this, [[0, 6]]);
             }));
 
             function sendRequest(_x) {
-                return _ref.apply(this, arguments);
+                return _ref3.apply(this, arguments);
             }
 
             return sendRequest;
         }()
     }, {
         key: 'createElement',
-        value: function createElement(_ref2) {
-            var _ref2$parent = _ref2.parent,
-                parent = _ref2$parent === undefined ? document.body : _ref2$parent,
-                _ref2$tagName = _ref2.tagName,
-                tagName = _ref2$tagName === undefined ? 'div' : _ref2$tagName,
-                attrs = _ref2.attrs,
-                props = _ref2.props;
+        value: function createElement(_ref4) {
+            var _ref4$parent = _ref4.parent,
+                parent = _ref4$parent === undefined ? document.body : _ref4$parent,
+                _ref4$tagName = _ref4.tagName,
+                tagName = _ref4$tagName === undefined ? 'div' : _ref4$tagName,
+                attrs = _ref4.attrs,
+                props = _ref4.props;
 
             var element = document.createElement(tagName);
             if (attrs) {
@@ -140,8 +167,8 @@ var News = function () {
         }
     }, {
         key: 'renderNews',
-        value: function renderNews(_ref3) {
-            var articles = _ref3.articles;
+        value: function renderNews(_ref5) {
+            var articles = _ref5.articles;
 
             document.querySelector('.menu').style.display = 'none';
             document.querySelector('.menu-small').style.display = 'block';

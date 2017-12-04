@@ -5,9 +5,7 @@ const sources = ['national-geographic', 'bbc-news', 'the-wall-street-journal'];
 class News {
     static async sendRequest(url) {
         try {
-            const response = await fetch(url);
-            const data = await response.json();
-            News.renderNews(data);
+            return (await fetch(url)).json();
         } catch (err) {
             console.log(err);
         }
@@ -136,17 +134,17 @@ class News {
                 props: { innerHTML: `${source.split('-').join(' ').toUpperCase()}` },
             });
 
-            sourceNewsSmall.addEventListener('click', () => {
+            sourceNewsSmall.addEventListener('click', async () => {
                 const { forEach } = Array.prototype;
                 document.querySelectorAll('.active')
                 ::forEach(elem => elem.classList.remove('active'));
                 sourceNewsSmall.classList.add('active');
-                News.sendRequest(url);
+                News.renderNews(await News.sendRequest(url));
             });
 
-            sourceNews.addEventListener('click', () => {
+            sourceNews.addEventListener('click', async () => {
                 document.querySelector(`.${source}-small`).classList.add('active');
-                News.sendRequest(url);
+                News.renderNews(await News.sendRequest(url));
             });
             return this;
         });
