@@ -35,7 +35,6 @@ class News {
         return parent.appendChild(element);
     }
 
-
     static renderNews({ articles }) {
         document.querySelector('.menu').style.display = 'none';
         document.querySelector('.menu-small').style.display = 'block';
@@ -43,7 +42,7 @@ class News {
         if (document.querySelector('.main-section')) {
             document.body.removeChild(document.querySelector('.main-section'));
         }
-        
+
         const main = News.createElement({ attrs: { class: 'main-section' } });
 
         articles.forEach((article) => {
