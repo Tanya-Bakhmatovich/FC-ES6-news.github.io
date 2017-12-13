@@ -28,7 +28,7 @@ class News {
             createElement({
                 parent: sourceNews,
                 tagName: 'img',
-                attrs: { style: { width: '320px', height: '200px' }, src: `img/${source}.png` },
+                attrs: { style: { width: '320px', height: '200px' }, src: `./../img/${source}.png` },
             });
 
             const sourceNewsSmall = createElement({
