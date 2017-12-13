@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     context: __dirname + "/",
@@ -60,6 +61,12 @@ module.exports = {
     plugins: [
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.HotModuleReplacementPlugin(),
+        new HtmlWebpackPlugin({
+            template: './index.html',
+            minify: {
+                collapseWhitespace: true
+            }
+        }),
         new ExtractTextPlugin({
 			filename: '[name].css',
 			disable: false,
