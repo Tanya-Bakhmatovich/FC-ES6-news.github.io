@@ -5,7 +5,7 @@
   "scripts": {
     "start": "webpack-dev-server --output-public-path=/dist/ --progress --hot --inline",
     "prod": "webpack --config webpack.prod.config.js",
-    "dev": "webpack --config webpack.config.js"
+    "dev": "webpack --config webpack.dev.config.js"
   },
   "repository": {
     "type": "git",
