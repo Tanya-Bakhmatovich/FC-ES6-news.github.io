@@ -7,7 +7,6 @@ import './../css/main.css';
 class News {
 
     render() {
-
         createElement({
             attrs: { class: 'header' },
             props: { innerHTML: 'Stay tuned!' },
@@ -54,17 +53,18 @@ class News {
             sourceNews.addEventListener('click', async () => {
                 document.querySelector(`.${source}-small`).classList.add('active');
 
-                let [func, style] = await Promise.all([import(
+                const [func] = await Promise.all([import(
                     /* webpackChunkName: "./renderNews" */
                     /* webpackMode: "lazy" */
                     './renderNews'),
                     import(
                         /* webpackChunkName: "./renderStyle" */
                         /* webpackMode: "lazy" */
-                        './../css/render.css')
-                    ]);
+                        './../css/render.css'),
+                ]);
+
                 func.default(await sendRequest(url));
-            })
+            });
 
             return this;
         });
