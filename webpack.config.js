@@ -9,7 +9,7 @@ module.exports = {
     entry: './src',
     output: {
         path: path.resolve(__dirname, './dist'),
-        publicPath: __dirname + '/dist/',
+        // publicPath: '/dist/',
         filename: 'bundle.js',
     },
 
@@ -62,7 +62,7 @@ module.exports = {
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new HtmlWebpackPlugin({
-            template: './index.html',
+            template: './src/index.html',
             minify: {
                 collapseWhitespace: true
             }
