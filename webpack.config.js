@@ -8,9 +8,9 @@ module.exports = {
     context: __dirname + "/",
     entry: './src',
     output: {
+        chunkFilename: '[name].bundle.js',
         path: path.resolve(__dirname, './dist'),
-        // publicPath: '/dist/',
-        filename: 'bundle.js',
+        filename: "bundle.js"
     },
 
     resolve: {
@@ -28,7 +28,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
-                loader: ['babel-loader']
+                loader: ['babel-loader', 'eslint-loader']
             },
             {
                 test: /\.css$/,

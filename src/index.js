@@ -1,7 +1,7 @@
 import { URL_START, URL_END, sources } from './constants';
 import sendRequest from './request';
 import createElement from './createElement';
-// import renderNews from './renderNews';
+import file from '../loader/fileToCheck.json.json'; // eslint-disable-line no-unused-vars
 import './../css/main.css';
 
 class News {

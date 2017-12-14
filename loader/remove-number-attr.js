@@ -1,15 +1,25 @@
 module.exports = function (source) {
-    console.log(source);
+    const parsedJson = JSON.parse(source);
 
-    // function removeNumberKey(obj) {
-    //
-    //     for (let key in obj) {
-    //         if (obj.hasOwnProperty(key)) {
-    //             if (Number(key)) {
-    //                 delete obj[key];;
-    //             }
-    //         }
-    //     }
+    const removeNumberAttr = (obj) => {
+        for (let key in obj) {
+            console.log(key);
+            if (Number(key)) {
+                delete obj[key];
+            } else {
+                const current = obj[key];
+                checkAttr(current);
+            }
+        }
+    }
 
-    return source;
+    const checkAttr = (attr) => {
+            if (typeof attr === 'object' && !Array.isArray(attr)) {
+                removeNumberAttr(attr);
+            }
+        }
+
+    removeNumberAttr(parsedJson);
+
+    return parsedJson;
 };

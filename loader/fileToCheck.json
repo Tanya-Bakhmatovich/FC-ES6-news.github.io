@@ -1,0 +1,13 @@
+{
+    "text" : "text",
+    "1" : "number",
+    "object" : {
+        "first" : "1",
+        "2" : "2",
+        "3second" : {
+            "31" : "31"
+        }
+    },
+    "null" : null,
+    "array" : ["a","b","c"]
+}
