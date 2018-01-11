@@ -3,13 +3,13 @@ import Reducers from './reducer';
 class Redux {
 
     createStore(reducer) {
-        let state = {};
+        let state = reducer.state;
         let listeners = [];
 
         const getState = () => state;
 // Methods dispatch and subscribe implement Observer pattern
         const dispatch = (action) => {
-            state = reducer(this.state, action);
+            state = reducer(state, action);
             listeners.forEach(listener => listener());
         };
 

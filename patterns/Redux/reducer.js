@@ -13,17 +13,17 @@ export default class Reducers {
         case 'DATA_RECEIVED' :
             return Object.assign({}, state, {
                 dataRecieved: true,
-                articles: action.articles,
+                articles: [...state.articles, ...action.articles],
             });
 
         case 'ARTICLE_IS_VIEWED' :
-            state.counter ++;// eslint-disable-line no-plusplus
-            state.articlesViewed.push(action.articlesViewed);
-
-            return Object.assign({}, state);
+            return Object.assign({}, state, {
+            articlesViewed: [...state.articlesViewed, action.articlesViewed],
+            counter: state.counter + 1,
+});
 
         default:
-            return this.state;
+            return state;
         }
     }
 }
