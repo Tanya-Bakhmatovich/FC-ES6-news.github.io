@@ -123,6 +123,23 @@
   text-align: center;
 }
 
+.display-article-button {
+  padding: 3px;
+  position: absolute;
+  display: block;
+  top: 1rem;
+  right: 1rem;
+  color: #131763;
+  font-size: 1.5rem;
+  font-family: 'Londrina Solid', cursive;
+}
+
+.no-viewed-articles {
+  margin-top: 70px;
+  text-align: center;
+  font-size: 2rem;
+}
+
 @media only screen and (max-width: 1300px) and (min-width: 700px) {
   .article {
     width: 40%;
@@ -130,7 +147,7 @@
 }
 
 @media screen and (max-width: 810px) {
-  .menu-small {
+  div.menu-small {
     margin-top: 30px;
     text-align: center;
     position: inherit;
